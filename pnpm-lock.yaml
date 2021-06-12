@@ -1,4 +1,5 @@
 dependencies:
+  '@tailwindcss/line-clamp': 0.2.1_tailwindcss@2.1.4
   autoprefixer: 10.2.6_postcss@8.3.2
   firebase: 8.6.7
   next: 10.2.3_react-dom@17.0.2+react@17.0.2
@@ -526,6 +527,14 @@ packages:
     dev: false
     resolution:
       integrity: sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
+  /@tailwindcss/line-clamp/0.2.1_tailwindcss@2.1.4:
+    dependencies:
+      tailwindcss: 2.1.4_32565eec2408f3b70f749fe37ad22ae2
+    dev: false
+    peerDependencies:
+      tailwindcss: '>=2.0.0'
+    resolution:
+      integrity: sha512-Hq2KJY1+T2v7jw/mnT3mnC7CKbp5kj1XTqzSb2xbEt1j+JkxIR6N3ijsN/WevZtsKJfVE1KOejA/3IRKuhZEsQ==
   /@types/long/4.0.1:
     dev: false
     resolution:
@@ -3584,6 +3593,7 @@ packages:
     resolution:
       integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 specifiers:
+  '@tailwindcss/line-clamp': ^0.2.1
   autoprefixer: ^10.0.4
   eslint: ^7.21.0
   eslint-plugin-react: ^7.22.0

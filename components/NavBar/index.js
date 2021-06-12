@@ -18,7 +18,7 @@ const NavBar = ({ title, onBack }) => {
             </g>
           </svg>
         </button>
-        <p className="text-md font-bold text-white">{title}</p>
+        <p className="text-md font-bold text-white line-clamp-1">{title}</p>
       </div>
     </nav>
   );

@@ -3,6 +3,7 @@ import { memo } from "react";
 import "firebase/firestore";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import NavBar from "../../components/NavBar";
+import VideoPlayer from "./VideoPlayer";
 
 const VideoDetail = () => {
   const { back, query } = useRouter();
@@ -17,7 +18,12 @@ const VideoDetail = () => {
   if (data.data.length === 0) {
     return <p>not found</p>;
   }
-  return <NavBar title={data.data[0].title} onBack={back} />;
+  return (
+    <>
+      <NavBar title={data.data[0].title} onBack={back} />;
+      <VideoPlayer />
+    </>
+  );
 };
 
 export default memo(VideoDetail);
