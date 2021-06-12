@@ -1,17 +1,18 @@
 import { memo } from "react";
-import firebase from "../../../firebase";
-import "firebase/auth";
 import { useLoginBtsDispatch } from "../contexts/LoginBtsContext";
+import firebase from 'firebase/app';
+import { useAuth } from "reactfire";
 
-const provider = new firebase.auth.GoogleAuthProvider();
-const appleProvider = new firebase.auth.OAuthProvider("apple.com");
+// const provider = new auth.GoogleAuthProvider();
+// const appleProvider = new auth.OAuthProvider("apple.com");
 
 const useLogin = () => {
   const { handleOnCloseBTS } = useLoginBtsDispatch();
+  const auth = useAuth();
   return {
     handleGoogle: async () => {
       try {
-        await firebase.auth().signInWithPopup(provider);
+        await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
         handleOnCloseBTS();
       } catch (err) {
         alert(err);
@@ -19,7 +20,7 @@ const useLogin = () => {
     },
     handleApple: async () => {
       try {
-        await firebase.auth().signInWithPopup(appleProvider);
+        await auth.signInWithPopup(new firebase.auth.OAuthProvider('apple.com'));
         handleOnCloseBTS();
       } catch (err) {
         alert(err);
