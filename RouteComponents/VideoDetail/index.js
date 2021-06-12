@@ -20,7 +20,7 @@ const VideoDetail = () => {
 
   return (
     <>
-      <NavBar title={data.data().title} onBack={back} />;
+      <NavBar title={data.data().title} onBack={back} />
       <VideoPlayer />
     </>
   );
