@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { useAuth } from "reactfire";
 import Action from "./Action";
+import { TooltipProvider } from "./contexts/TooltipContext";
 const NavBar = ({ title, onBack, withAction }) => {
   const { currentUser } = useAuth();
   return (
@@ -26,7 +27,9 @@ const NavBar = ({ title, onBack, withAction }) => {
           )}
           <p className="text-md font-bold text-white line-clamp-1">{title}</p>
         </div>
-        {withAction && currentUser && <Action />}
+        <TooltipProvider>
+          {withAction && currentUser && <Action />}
+        </TooltipProvider>
       </div>
     </nav>
   );

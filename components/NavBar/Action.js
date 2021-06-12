@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { useTooltipDispatch } from "./contexts/TooltipContext";
 import Tooltip from "./Tooltip";
 
 const Icons = () => {
@@ -17,9 +18,14 @@ const Icons = () => {
 };
 
 const Action = () => {
+  const setState = useTooltipDispatch();
   return (
     <div className="relative">
-      <button>
+      <button
+        onClick={() => {
+          setState((prev) => !prev);
+        }}
+      >
         <Icons />
       </button>
       <Tooltip />
