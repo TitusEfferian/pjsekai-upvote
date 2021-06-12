@@ -1,4 +1,5 @@
 import { memo } from "react";
+import Tooltip from "./Tooltip";
 
 const Icons = () => {
   return (
@@ -17,9 +18,12 @@ const Icons = () => {
 
 const Action = () => {
   return (
-    <button>
-      <Icons />
-    </button>
+    <div className="relative">
+      <button>
+        <Icons />
+      </button>
+      <Tooltip />
+    </div>
   );
 };
 
