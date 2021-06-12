@@ -28,13 +28,13 @@ const SubmitSong = () => {
         <button
           onClick={async () => {
             try {
-                setSubmitLoading(true);
+              setSubmitLoading(true);
               await submitRef.add({
                 url: val,
               });
-              alert('success submit');
+              alert("success submit");
               setSubmitLoading(false);
-              setVal('');
+              setVal("");
             } catch (err) {
               alert(err);
             }
@@ -42,7 +42,7 @@ const SubmitSong = () => {
           disabled={submitLoading}
           className="w-full rounded bg-black text-white flex items-center justify-center p-2"
         >
-          {submitLoading ? 'loading' : 'submit'}
+          {submitLoading ? "loading" : "submit"}
         </button>
       </div>
     </>

@@ -8,34 +8,37 @@ const Tooltip = () => {
   const showTooltip = useTooltip();
   const auth = useAuth();
   const { reload, push } = useRouter();
-  return (
-    <div
-      className={`${showTooltip ? "opacity-100" : "opacity-0"} transition-all ease-in-out duration-300 p-4 w-48 bg-white rounded shadow border absolute top-0 right-0 mt-8`}
-    >
-      <ol>
-        <li className="text-sm">
-          <button
-            onClick={() => {
-              push("/submit/song");
-            }}
-          >
-            add your wishlist song
-          </button>
-        </li>
-        <li className="text-sm mt-2">
-          <button
-            onClick={() => {
-              auth.signOut().then(() => {
-                reload();
-              });
-            }}
-          >
-            Logout
-          </button>
-        </li>
-      </ol>
-    </div>
-  );
+  if (showTooltip) {
+    return (
+      <div
+        className={`p-4 w-48 bg-white rounded shadow border absolute top-0 right-0 mt-8`}
+      >
+        <ol>
+          <li className="text-sm">
+            <button
+              onClick={() => {
+                push("/submit/song");
+              }}
+            >
+              add your wishlist song
+            </button>
+          </li>
+          <li className="text-sm mt-2">
+            <button
+              onClick={() => {
+                auth.signOut().then(() => {
+                  reload();
+                });
+              }}
+            >
+              Logout
+            </button>
+          </li>
+        </ol>
+      </div>
+    );
+  }
+  return null;
 };
 
 export default memo(Tooltip);
