@@ -23,9 +23,7 @@ const firebaseConfig = {
 function MyApp({ Component, pageProps }) {
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <AuthProvider>
-        <Component {...pageProps} />
-      </AuthProvider>
+      <Component {...pageProps} />
     </FirebaseAppProvider>
   );
 }

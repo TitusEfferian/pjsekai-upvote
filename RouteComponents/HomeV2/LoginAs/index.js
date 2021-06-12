@@ -1,10 +1,7 @@
 import { memo } from "react";
-import { useLoginBtsDispatch } from "../../HomeV2/contexts/LoginBtsContext";
 import firebase from "firebase/app";
 import { useAuth } from "reactfire";
-
-// const provider = new auth.GoogleAuthProvider();
-// const appleProvider = new auth.OAuthProvider("apple.com");
+import { useLoginBtsDispatch } from "../contexts/LoginBTS";
 
 const useLogin = () => {
   const { handleOnCloseBTS } = useLoginBtsDispatch();

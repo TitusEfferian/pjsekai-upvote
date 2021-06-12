@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const LoginBts = createContext();
 const LoginBtsDispatch = createContext();
 
-const LogiBtsProvider = ({ children }) => {
+const LoginBtsProvider = ({ children }) => {
   const [{ showBTS }, setState] = useState({
     showBTS: false,
   });
@@ -36,4 +36,4 @@ const LogiBtsProvider = ({ children }) => {
 const useLoginBts = () => useContext(LoginBts);
 const useLoginBtsDispatch = () => useContext(LoginBtsDispatch);
 
-export { useLoginBts, useLoginBtsDispatch, LogiBtsProvider };
+export { useLoginBts, useLoginBtsDispatch, LoginBtsProvider };
