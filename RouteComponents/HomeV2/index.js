@@ -19,7 +19,7 @@ const HomeV2 = () => {
   }
   return (
     <>
-      <NavBar title="Pjsekai wishlist songs" />
+      <NavBar title="Pjsekai wishlist songs" withAction />
       {data.map((_, index) => {
         return (
           <CardIndexProvider index={index} key={index}>
