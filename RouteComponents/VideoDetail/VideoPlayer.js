@@ -10,7 +10,7 @@ const VideoPlayer = () => {
   const { data } = useFirestoreDoc(docsRef);
 
   return (
-    <video className="mt-8 mx-auto" controls autoPlay>
+    <video className="mt-8 mx-auto" controls>
       <source src={data.data().video_url}></source>
     </video>
   );
