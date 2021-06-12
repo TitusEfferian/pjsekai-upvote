@@ -14,8 +14,8 @@ const Card = () => {
   const docsRef = useFirestore().collection("songs");
   const { data } = useFirestoreCollectionData(docsRef);
   return (
-    <div className="px-4 mx-auto w-full max-w-xl mt-16">
-      <div className="w-full shadow rounded">
+    <div className={`px-4 mx-auto w-full max-w-xl mt-${index === 0 ? 16 : 4}`}>
+      <div className="w-full shadow rounded pb-2">
         <img src={data[index].thumbnail} className="rounded-t mx-auto" />
         <div className="px-2 mt-2">
           <p className="font-bold">{data[index].title}</p>
