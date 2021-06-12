@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useLoginBtsDispatch } from "../contexts/LoginBtsContext";
-import firebase from 'firebase/app';
+import firebase from "firebase/app";
 import { useAuth } from "reactfire";
 
 // const provider = new auth.GoogleAuthProvider();
@@ -20,7 +20,9 @@ const useLogin = () => {
     },
     handleApple: async () => {
       try {
-        await auth.signInWithPopup(new firebase.auth.OAuthProvider('apple.com'));
+        await auth.signInWithPopup(
+          new firebase.auth.OAuthProvider("apple.com")
+        );
         handleOnCloseBTS();
       } catch (err) {
         alert(err);

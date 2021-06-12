@@ -1,5 +1,6 @@
 import { memo, createContext, useContext } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useHome } from "../../contexts/HomeContext";
 import useLikes from "./hooks/useLikes";
@@ -85,21 +86,23 @@ const Card = () => {
           y === 0 ? "mt-20" : "mt-4"
         } pl-4 pr-4 mx-auto`}
       >
-        <li className="w-full max-w-xl bg-white rounded shadow">
-          <CardContext.Provider value={x}>
-            <ImageThumbnail thumbnail={x.thumbnail} />
-            <div className="p-4">
-              <p className="text-lg font-bold">{x.title}</p>
-              <p className="text-md text-gray-700">{x.creator}</p>
-              <div className="w-full flex items-center justify-between mt-4">
-                <LogiBtsProvider>
-                  <ThumbUp />
-                  <VoteButton />
-                </LogiBtsProvider>
+        <Link href={`/${x.title}`}>
+          <li className="w-full max-w-xl bg-white rounded shadow">
+            <CardContext.Provider value={x}>
+              <ImageThumbnail thumbnail={x.thumbnail} />
+              <div className="p-4">
+                <p className="text-lg font-bold">{x.title}</p>
+                <p className="text-md text-gray-700">{x.creator}</p>
+                <div className="w-full flex items-center justify-between mt-4">
+                  <LogiBtsProvider>
+                    <ThumbUp />
+                    <VoteButton />
+                  </LogiBtsProvider>
+                </div>
               </div>
-            </div>
-          </CardContext.Provider>
-        </li>
+            </CardContext.Provider>
+          </li>
+        </Link>
       </ul>
     );
   });
