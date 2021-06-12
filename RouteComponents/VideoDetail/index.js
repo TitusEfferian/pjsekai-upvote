@@ -10,16 +10,17 @@ const VideoDetail = () => {
   const { back, query } = useRouter();
   const { id } = query;
   const docsRef = useFirestore().collection("songs").doc(id);
-  const data = useFirestoreDoc(docsRef);
-  if (data.status === "loading") {
+  const { data, status } = useFirestoreDoc(docsRef);
+  if (status === "loading") {
     return <NavBar title="" onBack={back} />;
   }
-  if (data.data.length === 0) {
+  if (!data.exists) {
     return <p>not found</p>;
   }
+
   return (
     <>
-      <NavBar title={data.data.title} onBack={back} />;
+      <NavBar title={data.data().title} onBack={back} />;
       <VideoPlayer />
     </>
   );

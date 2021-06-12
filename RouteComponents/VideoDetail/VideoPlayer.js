@@ -7,10 +7,10 @@ const VideoPlayer = () => {
   const { query } = useRouter();
   const { id } = query;
   const docsRef = useFirestore().collection("songs").doc(id);
-  const data = useFirestoreDoc(docsRef);
+  const { data } = useFirestoreDoc(docsRef);
   return (
     <video className="mt-8 mx-auto" controls>
-      <source src={data.data.video_url}></source>
+      <source src={data.data().video_url}></source>
     </video>
   );
 };
