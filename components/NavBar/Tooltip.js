@@ -7,7 +7,7 @@ import { useTooltip } from "./contexts/TooltipContext";
 const Tooltip = () => {
   const showTooltip = useTooltip();
   const auth = useAuth();
-  const { reload } = useRouter();
+  const { reload, push } = useRouter();
   return (
     <div
       className={`${showTooltip ? "opacity-100" : "opacity-0"} ${
@@ -16,7 +16,13 @@ const Tooltip = () => {
     >
       <ol>
         <li className="text-sm">
-          <button>add your wishlist song</button>
+          <button
+            onClick={() => {
+              push("/submit/song");
+            }}
+          >
+            add your wishlist song
+          </button>
         </li>
         <li className="text-sm mt-2">
           <button
