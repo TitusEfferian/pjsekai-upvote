@@ -1,9 +1,5 @@
 import "../styles/globals.css";
-import dynamic from "next/dynamic";
 import { FirebaseAppProvider } from "reactfire";
-const AuthProvider = dynamic(() =>
-  import("../contexts/AuthContext").then((x) => x.AuthProvider)
-);
 
 /**
  * this is a client key

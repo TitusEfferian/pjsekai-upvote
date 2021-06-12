@@ -15,26 +15,32 @@ const Card = () => {
   const docsRef = useFirestore().collection("songs");
   const { data } = useFirestoreCollectionData(docsRef);
   return (
-    <div className={`px-4 mx-auto w-full max-w-xl mt-${index === 0 ? 16 : 4}`}>
-      <Link href={`/${data[index].NO_ID_FIELD}`}>
-        <div className="w-full shadow rounded pb-2">
-          <img src={data[index].thumbnail} className="rounded-t mx-auto" />
-          <div className="px-2 mt-2">
-            <p className="font-bold">{data[index].title}</p>
-          </div>
-          <div className="px-2 mt-1">
-            <p className="text-sm">{data[index].creator}</p>
-          </div>
-          <Heart />
-          <BottomSheet
-            show={showBTS}
-            title="Choose your account"
-            onClose={handleOnCloseBTS}
-          >
-            {showBTS && <LoginAs />}
-          </BottomSheet>
-        </div>
-      </Link>
+    <div
+      className={`px-4 mx-auto w-full max-w-xl ${
+        index === 0 ? "mt-16" : "mt-4"
+      }`}
+    >
+      <div className="w-full shadow rounded pb-2">
+        <Link href={`/${data[index].NO_ID_FIELD}`}>
+          <a>
+            <img src={data[index].thumbnail} className="rounded-t mx-auto" />
+            <div className="px-2 mt-2">
+              <p className="font-bold">{data[index].title}</p>
+            </div>
+            <div className="px-2 mt-1">
+              <p className="text-sm">{data[index].creator}</p>
+            </div>
+          </a>
+        </Link>
+        <Heart />
+        <BottomSheet
+          show={showBTS}
+          title="Choose your account"
+          onClose={handleOnCloseBTS}
+        >
+          {showBTS && <LoginAs />}
+        </BottomSheet>
+      </div>
     </div>
   );
 };
