@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { memo } from "react";
-import Head from 'next/head';
+import Head from "next/head";
 import "firebase/firestore";
 import { useFirestore } from "reactfire";
 import NavBar from "../../components/NavBar";
@@ -23,7 +23,7 @@ const VideoDetail = () => {
     <>
       <NavBar title={data.data().title} onBack={back} />
       <Head>
-          <title>{`Project Sekai Wishlist song - ${data.data().title}`}</title>
+        <title>{`Project Sekai Wishlist song - ${data.data().title}`}</title>
       </Head>
       <VideoPlayer />
     </>
