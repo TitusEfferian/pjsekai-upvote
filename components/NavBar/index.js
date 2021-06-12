@@ -1,6 +1,8 @@
 import { memo } from "react";
+import { useAuth } from "reactfire";
 import Action from "./Action";
 const NavBar = ({ title, onBack, withAction }) => {
+  const { currentUser } = useAuth();
   return (
     <nav className="w-full fixed top-0">
       <div className="w-full max-w-xl p-4 bg-blue-700 mx-auto shadow flex items-center justify-between">
@@ -24,11 +26,7 @@ const NavBar = ({ title, onBack, withAction }) => {
           )}
           <p className="text-md font-bold text-white line-clamp-1">{title}</p>
         </div>
-        {
-          withAction && (
-            <Action />
-          )
-        }
+        {withAction && currentUser && <Action />}
       </div>
     </nav>
   );
